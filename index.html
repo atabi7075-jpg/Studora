@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STUDORA | Learn. Grow. Succeed.</title>
+<meta name="description" content="STUDORA - A free global learning platform for every student.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f8f5;color:#173c2d}
+header{background:#123e2d;color:white;padding:20px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold;letter-spacing:1px}
+nav a{color:white;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{text-align:center;padding:75px 20px;background:linear-gradient(135deg,#e2f2e7,#f7fbf7)}
+.hero h1{font-size:42px;margin-bottom:15px}
+.hero h1 span{color:#26965d}
+.hero p{max-width:550px;margin:0 auto 25px;line-height:1.7;color:#557064}
+.btn{display:inline-block;background:#198754;color:white;padding:13px 25px;border-radius:9px;text-decoration:none;border:0;cursor:pointer;font-weight:bold}
+section{padding:55px 7%}
+h2{text-align:center;font-size:29px;margin-bottom:12px}
+.sub{text-align:center;color:#718078;margin-bottom:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:white;padding:24px;border-radius:15px;box-shadow:0 4px 18px #173c2d10}
+.card .emoji{font-size:30px}
+.card h3{margin:13px 0 8px}
+.card p{color:#718078;line-height:1.5;font-size:14px}
+.workspace{max-width:750px;margin:auto;background:white;padding:25px;border-radius:16px;box-shadow:0 4px 20px #173c2d12}
+select,textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #d5e2d8;border-radius:9px;font-size:15px}
+textarea{height:140px;resize:vertical}
+#result{white-space:pre-wrap;background:#f1f7f2;padding:15px;border-radius:10px;margin-top:15px;line-height:1.7;display:none}
+footer{text-align:center;background:#123e2d;color:white;padding:28px}
+@media(max-width:600px){header{padding:17px 5%;}nav a{margin-left:8px;font-size:12px}.hero h1{font-size:34px}section{padding:40px 5%}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">STUDORA.</div>
+<nav>
+<a href="#tools">Tools</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Learn smarter.<br><span>Grow further.</span></h1>
+<p>A free learning space for students around the world. Study, practice and discover your potential.</p>
+<a class="btn" href="#tools">Start Learning</a>
+</div>
+
+<section id="tools">
+<h2>Your Learning Tools</h2>
+<p class="sub">Everything you need to study better.</p>
+<div class="cards">
+<div class="card"><div class="emoji">🤖</div><h3>AI Study Assistant</h3><p>Get help understanding difficult lessons.</p></div>
+<div class="card"><div class="emoji">📚</div><h3>Text Summarizer</h3><p>Make long lessons easier to review.</p></div>
+<div class="card"><div class="emoji">📝</div><h3>Quiz Generator</h3><p>Practice with questions and answers.</p></div>
+<div class="card"><div class="emoji">🗂️</div><h3>Flashcards</h3><p>Review important ideas and concepts.</p></div>
+<div class="card"><div class="emoji">📅</div><h3>Study Planner</h3><p>Organize your learning time.</p></div>
+<div class="card"><div class="emoji">🌍</div><h3>Learn Anywhere</h3><p>A learning space for students worldwide.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Try Your Study Assistant</h2>
+<p class="sub">A first simple study workspace.</p>
+<div class="workspace">
+<label for="mode"><b>Choose a tool</b></label>
+<select id="mode">
+<option value="explain">Explain a lesson</option>
+<option value="summary">Summarize my notes</option>
+<option value="quiz">Create practice questions</option>
+<option value="cards">Create flashcards</option>
+<option value="planner">Make a study plan</option>
+</select>
+<textarea id="question" placeholder="Write your lesson or your question here..."></textarea>
+<button class="btn" onclick="generate()">Generate</button>
+<div id="result"></div>
+</div>
+</section>
+
+<section id="about">
+<h2>Education for Everyone</h2>
+<p class="sub">Our mission is to make learning accessible to students everywhere, regardless of their financial situation.</p>
+</section>
+
+<footer>
+<h3>STUDORA.</h3>
+<p>Learn. Grow. Succeed.</p>
+<p style="margin-top:12px;font-size:13px">Free learning for everyone around the world.</p>
+</footer>
+
+<script>
+function generate(){
+const q=document.getElementById("question").value.trim();
+const mode=document.getElementById("mode").value;
+const result=document.getElementById("result");
+if(!q){alert("Please write a lesson or question first.");return;}
+let title={
+explain:"Study Assistant",
+summary:"Your Summary",
+quiz:"Practice Questions",
+cards:"Flashcards",
+planner:"Study Plan"
+};
+result.style.display="block";
+result.textContent=title[mode]+"\n\nYour text has been received!\n\nThis is the first version of STUDORA. The AI connection will be added in the next development stage.";
+}
+</script>
+</body>
+</html>
